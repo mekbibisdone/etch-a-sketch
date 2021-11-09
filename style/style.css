@@ -1,0 +1,19 @@
+html{
+    box-sizing: border-box;
+}
+*,*:before,*:after{
+    box-sizing: inherit;
+}
+.square{
+    display: inline-block; 
+    /* width: 31.0125px; */
+    border-style: solid;
+}
+#container{
+    border-style: solid;
+    margin:0 auto;
+    display: flex;
+    flex-wrap: wrap;
+    width: 500px;
+    height: 500px;
+}
