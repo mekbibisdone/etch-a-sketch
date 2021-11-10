@@ -1,5 +1,5 @@
+const resetButton = document.querySelector('#reset');
 const container = document.querySelector('#container');
-const containerStyle = window.getComputedStyle(container);
 const containerWidth = 496.262;
 const containerheight = 496.262;
 const containerArea = containerWidth * containerheight;
@@ -12,13 +12,15 @@ for (let i = 0; i < 256;i++){
 }
 
 const squares = document.querySelectorAll('.square');
+
 squares.forEach(square =>{
     square.style.width = `${squareWidth}px`;
-    // square.style.cssText = `width: ${squareWidth}px`;
-    
-})
-squares.forEach(square=>{
     square.addEventListener('mouseover', function(e){
         e.target.classList.add('square-active');
     })
 })
+resetButton.addEventListener('click',()=>{
+    squares.forEach(square =>{
+    square.classList.remove('square-active');
+})})
+
