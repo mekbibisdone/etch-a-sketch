@@ -13,5 +13,12 @@ for (let i = 0; i < 256;i++){
 
 const squares = document.querySelectorAll('.square');
 squares.forEach(square =>{
-    square.style.cssText = `width: ${squareWidth}px`;
+    square.style.width = `${squareWidth}px`;
+    // square.style.cssText = `width: ${squareWidth}px`;
+    
+})
+squares.forEach(square=>{
+    square.addEventListener('mouseover', function(e){
+        e.target.classList.add('square-active');
+    })
 })

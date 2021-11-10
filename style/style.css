@@ -6,8 +6,8 @@ html{
 }
 .square{
     display: inline-block; 
-    /* width: 31.0125px; */
-    border-style: solid;
+    
+    /* border-style: solid; */
 }
 #container{
     border-style: solid;
@@ -16,4 +16,7 @@ html{
     flex-wrap: wrap;
     width: 500px;
     height: 500px;
+}
+.square-active{
+    background: black;
 }
