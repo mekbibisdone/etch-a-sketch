@@ -1,5 +1,3 @@
-const once = {once:true};
-
 const resetButton = document.querySelector('#reset');
 const container = document.querySelector('#container');
 const containerWidth = 496.262;
@@ -18,8 +16,8 @@ const squares = document.querySelectorAll('.square');
 squares.forEach(square =>{
     square.style.width = `${squareWidth}px`;
     square.addEventListener('mouseover', function(e){
-        e.target.classList.toggle('square-active');
-    },once)
+        e.target.classList.add('square-active');
+    })
 })
 resetButton.addEventListener('click',()=>{
     squares.forEach(square =>{
