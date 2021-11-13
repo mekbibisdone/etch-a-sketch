@@ -12,8 +12,8 @@ html{
     border-style: solid;
     margin:0 auto;
     display: grid;
-    width: 500px;
-    height: 500px;
+    width: 400px;
+    height: 400px;
 }
 .square-active{
     background: black;

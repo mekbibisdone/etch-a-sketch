@@ -1,24 +1,35 @@
 const resetButton = document.querySelector('#reset');
 const container = document.querySelector('#container'); 
+const rainbowButton = document.querySelector('#rainbow');
+const blackButton = document.querySelector('#black');
+let mode = 0;
+squareNumb = askForGridNUmb();
+createGrid(squareNumb,mode);
 
-createGrid(askForGridNUmb());
-
-function createGrid(squareNumb){
+function createGrid(squareNumb,mode){
     container.style.gridTemplateColumns = `repeat(${squareNumb},1fr)`;
     for (let i = 0; i < squareNumb * squareNumb;i++){
         let square = document.createElement('div');
         square.classList.add('square');
         container.append(square);
     }
+    
     const squares = document.querySelectorAll('.square');
-    sqaureAddListener(squares);
-}
+    
+    if (mode === 0){
+        black(squares);
+    }
 
-function sqaureAddListener(squares){
-    squares.forEach(square =>{
-        square.addEventListener('mouseover', function(e){
-            e.target.classList.add('square-active');
-        })
+    else if (mode === 1){
+        rainbow(squares);
+    }
+
+    rainbowButton.addEventListener('click',()=>{
+        rainbow(squares);
+    })
+
+    blackButton.addEventListener('click',()=>{
+        black(squares);
     })
 }
 
@@ -35,7 +46,26 @@ function removeSquares(){
         container.removeChild(container.firstElementChild);
 }
 
+function getRandomInt(max){
+    return parseInt(Math.random()* max);
+}
+function black(squares){
+    squares.forEach(square =>{
+        square.addEventListener('mouseover', function(e){
+            e.target.style.backgroundColor = `black`;
+        })
+    }); mode = 0;
+}
+function rainbow(squares){
+    squares.forEach(square =>{
+        square.addEventListener('mouseover', function(e){
+            e.target.style.backgroundColor = `rgb(${getRandomInt(255)},${getRandomInt(255)},${getRandomInt(255)})`
+        })
+    }); mode = 1;
+}
 resetButton.addEventListener('click', ()=>{
     removeSquares();
-    createGrid(askForGridNUmb());
+    createGrid(askForGridNUmb(),mode);
 })
+
+
