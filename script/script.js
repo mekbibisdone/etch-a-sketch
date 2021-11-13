@@ -1,7 +1,7 @@
 const resetButton = document.querySelector('#reset');
-const container = document.querySelector('#container');
-let squareNumb = parseInt(askForGridNUmb());
-createGrid(squareNumb);
+const container = document.querySelector('#container'); 
+
+createGrid(askForGridNUmb());
 
 function createGrid(squareNumb){
     container.style.gridTemplateColumns = `repeat(${squareNumb},1fr)`;
@@ -23,16 +23,19 @@ function sqaureAddListener(squares){
 }
 
 function askForGridNUmb(){
-    return window.prompt("how many squares per side would you like: ");
+    squareNumb = window.prompt("how many squares per side would you like: ");
+    if (squareNumb < 0 || squareNumb > 100)
+        return askForGridNUmb();
+    else
+        return squareNumb;
 }
-
-resetButton.addEventListener('click', ()=>{
-    removeSquares();
-    createGrid(askForGridNUmb());
-})
 
 function removeSquares(){
     while(container.firstElementChild)
         container.removeChild(container.firstElementChild);
 }
 
+resetButton.addEventListener('click', ()=>{
+    removeSquares();
+    createGrid(askForGridNUmb());
+})
