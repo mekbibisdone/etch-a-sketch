@@ -5,15 +5,13 @@ html{
     box-sizing: inherit;
 }
 .square{
-    display: inline-block; 
     
     /* border-style: solid; */
 }
 #container{
     border-style: solid;
     margin:0 auto;
-    display: flex;
-    flex-wrap: wrap;
+    display: grid;
     width: 500px;
     height: 500px;
 }

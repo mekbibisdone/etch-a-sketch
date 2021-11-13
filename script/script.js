@@ -1,9 +1,6 @@
 const resetButton = document.querySelector('#reset');
 const container = document.querySelector('#container');
-const containerWidth = 496.262;
-const containerheight = 496.262;
-const containerArea = containerWidth * containerheight;
-const squareWidth = Math.sqrt(containerArea / 256);
+container.style.gridTemplateColumns = `repeat(16,1fr)`;
 
 for (let i = 0; i < 256;i++){
     let square = document.createElement('div');
@@ -14,7 +11,6 @@ for (let i = 0; i < 256;i++){
 const squares = document.querySelectorAll('.square');
 
 squares.forEach(square =>{
-    square.style.width = `${squareWidth}px`;
     square.addEventListener('mouseover', function(e){
         e.target.classList.add('square-active');
     })
