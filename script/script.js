@@ -3,6 +3,7 @@ const container = document.querySelector('#container');
 const rainbowButton = document.querySelector('#rainbow');
 const blackButton = document.querySelector('#black');
 const grayScaleButton = document.querySelector('#greyScale');
+const whiteButton = document.querySelector('#white');
 let mode = 0;
 squareNumb = askForGridNUmb();
 createGrid(squareNumb,mode);
@@ -36,6 +37,9 @@ function createGrid(squareNumb,mode){
     })
     grayScaleButton.addEventListener('click',()=>{
         greyScale(squares);
+    })
+    whiteButton.addEventListener('click',()=>{
+        white(squares);
     })
 }
 
@@ -81,6 +85,13 @@ function greyScale(squares){
                 counter -= 10;
         })
     });mode = 2;
+}
+function white(squares){
+    squares.forEach(square=>{
+        square.addEventListener('mouseover',function(e){
+            e.target.style.backgroundColor = 'white';
+        })
+    })
 }
 resetButton.addEventListener('click', ()=>{
     removeSquares();
