@@ -2,6 +2,7 @@ const resetButton = document.querySelector('#reset');
 const container = document.querySelector('#container'); 
 const rainbowButton = document.querySelector('#rainbow');
 const blackButton = document.querySelector('#black');
+const grayScaleButton = document.querySelector('#greyScale');
 let mode = 0;
 squareNumb = askForGridNUmb();
 createGrid(squareNumb,mode);
@@ -23,6 +24,8 @@ function createGrid(squareNumb,mode){
     else if (mode === 1){
         rainbow(squares);
     }
+    else 
+        greyScale(squares);
 
     rainbowButton.addEventListener('click',()=>{
         rainbow(squares);
@@ -30,6 +33,9 @@ function createGrid(squareNumb,mode){
 
     blackButton.addEventListener('click',()=>{
         black(squares);
+    })
+    grayScaleButton.addEventListener('click',()=>{
+        greyScale(squares);
     })
 }
 
@@ -49,6 +55,7 @@ function removeSquares(){
 function getRandomInt(max){
     return parseInt(Math.random()* max);
 }
+
 function black(squares){
     squares.forEach(square =>{
         square.addEventListener('mouseover', function(e){
@@ -56,12 +63,24 @@ function black(squares){
         })
     }); mode = 0;
 }
+
 function rainbow(squares){
     squares.forEach(square =>{
         square.addEventListener('mouseover', function(e){
             e.target.style.backgroundColor = `rgb(${getRandomInt(255)},${getRandomInt(255)},${getRandomInt(255)})`
         })
     }); mode = 1;
+}
+
+function greyScale(squares){
+    squares.forEach(square =>{
+        let counter = 90;
+        square.addEventListener('mouseover', function(e){
+            e.target.style.backgroundColor = `hsl(0,0%,${counter}%)`;
+            if (counter > 0)
+                counter -= 10;
+        })
+    });mode = 2;
 }
 resetButton.addEventListener('click', ()=>{
     removeSquares();
