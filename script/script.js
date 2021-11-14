@@ -40,7 +40,7 @@ function createGrid(squareNumb,mode){
 }
 
 function askForGridNUmb(){
-    squareNumb = window.prompt("how many squares per side would you like: ");
+    squareNumb = window.prompt("how many squares per side would you like(0-100): ");
     if (squareNumb < 0 || squareNumb > 100)
         return askForGridNUmb();
     else
@@ -74,7 +74,7 @@ function rainbow(squares){
 
 function greyScale(squares){
     squares.forEach(square =>{
-        let counter = 90;
+        let counter = 80;
         square.addEventListener('mouseover', function(e){
             e.target.style.backgroundColor = `hsl(0,0%,${counter}%)`;
             if (counter > 0)
