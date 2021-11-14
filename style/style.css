@@ -23,3 +23,7 @@ body{
 .square-active{
     background: black;
 }
+button{
+    border-color: white;
+    border-radius: 1px 1px 1px 1px;
+}
